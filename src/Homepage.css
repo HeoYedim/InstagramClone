@@ -1,0 +1,15 @@
+.homepage {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage__nav {
+  width: 230px;
+  min-width: 230px;
+  border-right: 1px solid gray;
+  padding-right: 10px;
+}
+
+.homepage__timeline {
+  flex: 1;
+}

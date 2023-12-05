@@ -1,0 +1,26 @@
+.timeline {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline__container {
+  display: flex;
+  margin: auto;
+}
+
+.timeline__left {
+  width: 630px;
+  padding-left: 50px;
+}
+
+.timeline__right {
+  width: 300px;
+  min-width: 300px;
+}
+
+.suggestion__title {
+  margin-top: 30px;
+  margin-left: 20px;
+  color: grey;
+  font-weight: bolder;
+}
