@@ -7,8 +7,18 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function Post({ user, postImage, likes, timestamp }) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes);
+
+  const handleLikeClick = () => {
+    setIsLiked((prevIsLiked) => !prevIsLiked);
+    setLikeCount((prevLikeCount) =>
+      isLiked ? prevLikeCount - 1 : prevLikeCount + 1
+    );
+  };
   const [isBookmarked, setIsBookmarked] = useState(false);
   const handleBookmarkClick = () => {
     setIsBookmarked(!isBookmarked);
@@ -30,7 +40,11 @@ function Post({ user, postImage, likes, timestamp }) {
       <div className="post__footer">
         <div className="post__footerIcons">
           <div className="post__iconsMain">
-            <FavoriteBorder className="postIcon" />
+            {isLiked ? (
+              <FavoriteIcon className="postIcon" onClick={handleLikeClick} />
+            ) : (
+              <FavoriteBorder className="postIcon" onClick={handleLikeClick} />
+            )}
             <ChatBubbleOutlineIcon className="postIcon" />
             <TelegramIcon className="postIcon" />
           </div>
@@ -42,7 +56,7 @@ function Post({ user, postImage, likes, timestamp }) {
             )}
           </div>
         </div>
-        Liked by {likes} people.
+        Liked by {likeCount} people.
       </div>
     </div>
   );
