@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import { Avatar } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -6,8 +6,14 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 function Post({ user, postImage, likes, timestamp }) {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const handleBookmarkClick = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
   return (
     <div className="post">
       <div className="post__header">
@@ -28,8 +34,12 @@ function Post({ user, postImage, likes, timestamp }) {
             <ChatBubbleOutlineIcon className="postIcon" />
             <TelegramIcon className="postIcon" />
           </div>
-          <div className="post__iconSave">
-            <BookmarkBorderIcon className="postIcon" />
+          <div className="post__iconSave" onClick={handleBookmarkClick}>
+            {isBookmarked ? (
+              <BookmarkIcon className="postIcon" />
+            ) : (
+              <BookmarkBorderIcon className="postIcon" />
+            )}
           </div>
         </div>
         Liked by {likes} people.

@@ -37,7 +37,7 @@ function Timeline() {
 
   const [suggestions, setSuggestions] = useState([
     {
-      suggestionUser: "jino",
+      suggestionUser: "jino❤️",
       suggestionRelation: "New to Instagram",
     },
     {
