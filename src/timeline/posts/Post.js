@@ -13,6 +13,7 @@ function Post({ user, postImage, likes, timestamp }) {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
 
+  // 함수 내에서 이전 상태를 참조하여 업데이트하도록 하여 비동기성으로 인한 문제를 방지
   const handleLikeClick = () => {
     setIsLiked((prevIsLiked) => !prevIsLiked);
     setLikeCount((prevLikeCount) =>

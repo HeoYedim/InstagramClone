@@ -1,6 +1,6 @@
 .post {
   width: 468px;
-  margin: 30px 40px 50px 40px;
+  margin: 20px 40px 40px 40px;
 }
 
 .post__header {
@@ -51,4 +51,12 @@
 }
 .postIcon:hover {
   cursor: pointer;
+}
+
+.postSeparator {
+  margin: 5px 40px 5px 40px;
+  width: 468px;
+  height: 1px;
+  background-color: gray;
+  border: none;
 }

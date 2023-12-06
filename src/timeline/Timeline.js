@@ -55,13 +55,17 @@ function Timeline() {
       <div className="timeline__container">
         <div className="timeline__left">
           <div className="timeline__posts">
-            {posts.map((post) => (
-              <Post
-                user={post.user}
-                postImage={post.postImage}
-                likes={post.likes}
-                timestamp={post.timestamp}
-              />
+            {/* Post 컴포넌트와 구분선을 번갈아가며 렌더링합니다. */}
+            {posts.map((post, index) => (
+              <React.Fragment key={index}>
+                <Post
+                  user={post.user}
+                  postImage={post.postImage}
+                  likes={post.likes}
+                  timestamp={post.timestamp}
+                />
+                {index < posts.length - 1 && <hr className="postSeparator" />}
+              </React.Fragment>
             ))}
           </div>
         </div>
