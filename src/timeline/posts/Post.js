@@ -33,7 +33,7 @@ function Post({ user, postImage, likes, timestamp }) {
           <span className="post__userName">{user}</span> •
           <span className="post__usesrTimestamp">{timestamp}</span>
         </div>
-        <MoreHorizIcon />
+        <MoreHorizIcon className="post__headerIcon" />
       </div>
       <div className="post__image">
         <img src={postImage} alt="" />
